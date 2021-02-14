@@ -1,6 +1,6 @@
 # Turkish-Wikipedia-Based-Knowledge-Graph
 
-
+İnzva AI projects 6
 
 
 
