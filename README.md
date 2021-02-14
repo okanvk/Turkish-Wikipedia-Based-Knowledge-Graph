@@ -23,13 +23,13 @@ We used Turkish WordNet and trnlp gihub repository to collect adjective, adverb 
 
 ### Turkish WordNet Count based on POS
 
-|  Adjective Count  |   Adverb Coun  | Verb Count | 
+|  Adjective Count  |  Adverb Count  | Verb Count | 
 |:-----------------:|:--------------:|:----------:|
 |     10092         |      2325      |    13274   |   
 
 ### trnlp Count based on POS
 
-|  Adjective Count  |   Adverb Coun  | Verb Count | 
+|  Adjective Count  |  Adverb Count  | Verb Count | 
 |:-----------------:|:--------------:|:----------:|
 |     8456          |      1416      |    9788    |   
 
