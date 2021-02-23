@@ -13,11 +13,6 @@ wiki_disambiguation.txt.
 
 <a href="https://github.com/informagi/REL/blob/master/scripts/WikiExtractor.py">You can find WikiExtractor script from here.</a>
 
-# Papers
-We read/implement/understand this papers for this repository. \
-<a href="https://arxiv.org/pdf/2010.11967.pdf%22%3ELanguage models are open knowledge graphs</a> \
-<a href="https://dl.acm.org/doi/pdf/10.5555/2002472.2002592%22%3EA Generative Entity-Mention Model for Linking Entities with Knowledge Base</a>
-
 # Wikipedia2Vec
 We used Wikipedia2Vec to obtain page embeddings.
 Total number of word occurrences: 457850145
