@@ -3,7 +3,7 @@ This repository includes a Knowledge Graph construction project from Turkish Wik
 
 ## Resources that we used
 We mainly used two repositories. We constructed a pipeline using both of them in order to construct a knowladge graph. First repository , <a href="https://github.com/informagi/REL"> Radboud Entity Linker</a> which is a modular Entity Linker. 
-Second repository is  <a href="https://github.com/informagi/REL"> Link </a> which is non-official implementation of the <a href="https://github.com/informagi/REL"> Language Models are Open Knowledge Graphs </a> paper.
+Second repository is  <a href="https://github.com/theblackcat102/language-models-are-knowledge-graphs-pytorch"> Link </a> which is non-official implementation of the <a href="https://github.com/informagi/REL"> Language Models are Open Knowledge Graphs </a> paper.
 
 # WikiExtractor
 This script takes as an input a Wikipedia dump and spits out files such as \
