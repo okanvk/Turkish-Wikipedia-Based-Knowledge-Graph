@@ -5,7 +5,7 @@
 This script takes as an input a Wikipedia dump and spits out files such as \
 wiki_redirects.txt, \
 wiki_name_id_map.txt, \
-wiki_disambiguation.txt. \
+wiki_disambiguation.txt. 
 
 <a href="https://github.com/informagi/REL/blob/master/scripts/WikiExtractor.py">You can find WikiExtractor script from here.</a>
 
