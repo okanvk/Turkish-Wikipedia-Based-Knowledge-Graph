@@ -2,6 +2,13 @@
 
 
 
+# Wikipedia2Vec
+We used Wikipedia2Vec to obtain page embeddings.
+Total number of word occurrences: 457850145
+window=5, iteration=10, negative=15
+<a href="https://wikipedia2vec.github.io/wikipedia2vec/pretrained/">You can access Wikipedia2Vec official page from here</a>
+<a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here</a>
+<a href="/">DB Dump soon!</a>
 
 
 
@@ -36,6 +43,6 @@ We used Turkish WordNet and trnlp gihub repository to collect adjective, adverb 
 
 ### Total 
 
-|  Adjective Count  |   Adverb Coun  | Verb Count | 
+|  Adjective Count  |  Adverb Count  | Verb Count | 
 |:-----------------:|:--------------:|:----------:|
 |     18548         |      3741      |    23062   |   
