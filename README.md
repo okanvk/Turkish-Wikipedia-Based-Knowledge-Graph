@@ -3,9 +3,9 @@
 
 # WikiExtractor
 This script takes as an input a Wikipedia dump and spits out files such as
-wiki_redirects.txt,
-wiki_name_id_map.txt,
-wiki_disambiguation.txt.
+wiki_redirects.txt, \
+wiki_name_id_map.txt, \
+wiki_disambiguation.txt. \
 <a href="https://github.com/informagi/REL/blob/master/scripts/WikiExtractor.py">You can find WikiExtractor script from here.</a>
 
 
@@ -14,9 +14,9 @@ wiki_disambiguation.txt.
 We used Wikipedia2Vec to obtain page embeddings.
 Total number of word occurrences: 457850145
 window=5, iteration=10, negative=15
-<a href="https://wikipedia2vec.github.io/wikipedia2vec/pretrained/">You can access Wikipedia2Vec official page from here.</a>
-<a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a>
-<a href="/">DB Dump soon!</a>
+<a href="https://wikipedia2vec.github.io/wikipedia2vec/pretrained/">You can access Wikipedia2Vec official page from here.</a> \
+<a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a> \
+<a href="/">DB Dump soon!</a> \
 
 
 
