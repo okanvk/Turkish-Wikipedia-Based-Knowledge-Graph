@@ -1,6 +1,8 @@
 ## Turkish-Wikipedia-Based-Knowledge-Graph
 This repository includes a Knowledge Graph construction project from Turkish Wikipedia pages. This project constructs a Knowledge Graph from Turkish wikipedia dump, using both the unstructured texts and information boxes. It is developed under inzva AI Projects #6 event, with a group of 4 developers. 
 
+![alt text](https://github.com/okanvk/Turkish-Wikipedia-Based-Knowledge-Graph/blob/main/corpus/1613551272136.jpeg?raw=true)
+
 ## Resources that we used
 We mainly used two repositories. We constructed a pipeline using both of them in order to construct a knowladge graph. First repository , <a href="https://github.com/informagi/REL"> Radboud Entity Linker</a> which is a modular Entity Linker. 
 Second repository is  <a href="https://github.com/theblackcat102/language-models-are-knowledge-graphs-pytorch"> Link </a> which is non-official implementation of the <a href="https://github.com/informagi/REL"> Language Models are Open Knowledge Graphs </a> paper.
