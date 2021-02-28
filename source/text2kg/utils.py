@@ -2,7 +2,7 @@
 import numpy as np
 import torch
 import re
-
+from doc import Doc
 alphabet = re.compile(r'^[a-zA-Z]+$')
 
 from copy import copy
@@ -74,10 +74,11 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
         nlp: spacy model
         tokenizer: huggingface tokenizer
     '''
-    doc = nlp(sentence)
+    doc = Doc()
 
-    tokens = list(doc)
+    tokens = doc.word_tokenization(sentence)
 
+    print(tokens)
     chunk2id = {}
 
     start_chunk = []
@@ -134,6 +135,8 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
     
     return outputs, tokenid2word_mapping, token2id, noun_chunks
 
+create_mapping("kediler geliyor gidiyorlardı.")
+
 def compress_attention(attention, tokenid2word_mapping, operator=np.mean):
 
     new_index = []
@@ -188,16 +191,3 @@ def index2word(tokenid2word_mapping, token2id):
 
 
 
-if __name__ == '__main__':
-    import en_core_web_sm
-    from transformers import AutoTokenizer, BertModel
-    tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-    encoder = BertModel.from_pretrained('bert-base-cased')
-    nlp = en_core_web_sm.load()
-
-    sentence = 'Rolling Stone wrote: “No other pop song has so thoroughly challenged artistic conventions”'
-    sentence = 'Dylan sing "Time They Are Changing"'
-    inputs, tokenid2word_mapping, token2id, noun_chunks  = create_mapping(sentence, return_pt=True, nlp=nlp, tokenizer=tokenizer)
-
-    outputs = encoder(**inputs, output_attentions=True)
-    print(noun_chunks, tokenid2word_mapping, token2id)

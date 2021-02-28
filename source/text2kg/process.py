@@ -1,11 +1,9 @@
 from utils import compress_attention, create_mapping, BFS, build_graph, is_word
 from multiprocessing import Pool
-import spacy
-import en_core_web_md
 import torch
 from transformers import AutoTokenizer, BertModel, GPT2Model
 from constant import invalid_relations_set
-
+from turkish_lemma import TurkishLemmatizer
 
 def process_matrix(attentions, layer_idx = -1, head_num = 0, avg_head=False, trim=True, use_cuda=True):
     if avg_head:
@@ -35,9 +33,6 @@ def check_relations_validity(relations):
             return False
     return True
 
-def global_initializer(nlp_object):
-    global spacy_nlp
-    spacy_nlp = nlp_object
 
 def filter_relation_sets(params):
     triplet, id2token = params
@@ -48,7 +43,8 @@ def filter_relation_sets(params):
     if head in id2token and tail in id2token:
         head = id2token[head]
         tail = id2token[tail]
-        relations = [ spacy_nlp(id2token[idx])[0].lemma_  for idx in triplet_idx[1:-1] if idx in id2token ]
+	lemmatizer = TurkishLemmatizer()
+        relations = [ lemmatizer.bring_lemma(id2token[idx])  for idx in triplet_idx[1:-1] if idx in id2token ]
         if len(relations) > 0 and check_relations_validity(relations) and head.lower() not in invalid_relations_set and tail.lower() not in invalid_relations_set:
             return {'h': head, 't': tail, 'r': relations, 'c': confidence }
     return {}
@@ -58,7 +54,7 @@ def parse_sentence(sentence, tokenizer, encoder, nlp, use_cuda=True):
     '''
     tokenizer_name = str(tokenizer.__str__)
 
-    inputs, tokenid2word_mapping, token2id, noun_chunks  = create_mapping(sentence, return_pt=True, nlp=nlp, tokenizer=tokenizer)
+    inputs, tokenid2word_mapping, token2id, noun_chunks  = create_mapping(sentence, return_pt=True, tokenizer=tokenizer)
 
     with torch.no_grad():
         if use_cuda:

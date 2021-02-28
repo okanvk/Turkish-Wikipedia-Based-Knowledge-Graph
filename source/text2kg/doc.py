@@ -1,5 +1,5 @@
 from nltk.tokenize import word_tokenize,sent_tokenize
-from transformers import AutoTokenizer, AutoModel
+from transformers import pipeline,AutoModelForTokenClassification,AutoTokenizer, AutoModel
 
 
 
@@ -7,8 +7,8 @@ class Doc:
 
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("mustafabaris/tr_kg_pos_conllu_bert")
-        self.model = AutoModel.from_pretrained("mustafabaris/tr_kg_pos_conllu_bert")
-        self.pipeline = pipeline('pos', model=self.model, tokenizer=self.tokenizer)
+        self.model = AutoModelForTokenClassification.from_pretrained("mustafabaris/tr_kg_pos_conllu_bert")
+        self.pipeline = pipeline('ner', model=self.model, tokenizer=self.tokenizer)
 
 
     def find_pos_tags(sent):
@@ -22,3 +22,5 @@ class Doc:
     
     def word_tokenization(self,sent):
         return word_tokenize(sent)
+
+doc = Doc()

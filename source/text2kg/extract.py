@@ -4,9 +4,9 @@ from process import parse_sentence
 from mapper import Map, deduplication
 from transformers import AutoTokenizer, BertModel
 import argparse
-import en_core_web_md
 from tqdm import tqdm
 import json
+from doc import Doc
 
 def str2bool(v):
     if isinstance(v, bool):
@@ -36,9 +36,6 @@ parser.add_argument('--threshold', default=0.003,
 args = parser.parse_args()
 
 use_cuda = args.use_cuda
-nlp = en_core_web_md.load()
-
-
 
 language_model = args.language_model
 
@@ -55,12 +52,14 @@ if __name__ == '__main__':
 
     with open(input_filename, 'r') as f, open(output_filename, 'w') as g:
         for idx, line in enumerate(tqdm(f)):
-            sentence  = line.strip()
+            sentence = line.strip()
             if len(sentence):
-                valid_triplets = []
-                for sent in nlp(sentence).sents:
+            	valid_triplets = []
+                doc = Doc()
+		sents = doc.sentence_tokenization(sentence)
+		for sent in sents:
                     # Match
-                    for triplets in parse_sentence(sent.text, tokenizer, encoder, nlp, use_cuda=use_cuda):
+                    for triplets in parse_sentence(sent, tokenizer, encoder, nlp, use_cuda=use_cuda):
                         valid_triplets.append(triplets)
                 if len(valid_triplets) > 0:
                     # Map
