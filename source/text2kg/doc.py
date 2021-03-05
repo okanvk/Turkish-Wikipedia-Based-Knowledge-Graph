@@ -56,7 +56,8 @@ class Doc:
     def find_pos_tags(self,sent):
         res = self.pipeline(sentence)
         start_chunk,end_chunk,noun_chunks = self.find_chunk(res,self.model,self.tokenizer)
-        return sentence_mapping,token2id = self.get_index(res,start_chunk,end_chunk,noun_chunks)
+        sentence_mapping,token2id = self.get_index(res,start_chunk,end_chunk,noun_chunks)
+        return sentence_mapping, token2id
 
 
     def sentence_tokenization(self,paragraph):
