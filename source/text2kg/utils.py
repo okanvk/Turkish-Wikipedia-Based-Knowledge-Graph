@@ -78,34 +78,10 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
 
     tokens = doc.word_tokenization(sentence)
 
-    print(tokens)
+
     chunk2id = {}
 
-    start_chunk = []
-    end_chunk = []
-    noun_chunks = []
-    for chunk in doc.noun_chunks:
-        noun_chunks.append(chunk.text)
-        start_chunk.append(chunk.start)
-        end_chunk.append(chunk.end)
-
-    sentence_mapping = []
-    token2id = {}
-    mode = 0 # 1 in chunk, 0 not in chunk
-    chunk_id = 0
-    for idx, token in enumerate(doc):
-        if idx in start_chunk:
-            mode = 1
-            sentence_mapping.append(noun_chunks[chunk_id])
-            token2id[sentence_mapping[-1]] = len(token2id)
-            chunk_id += 1
-        elif idx in end_chunk:
-            mode = 0
-
-        if mode == 0:
-            sentence_mapping.append(token.text)
-            token2id[sentence_mapping[-1]] = len(token2id)
-
+    sentence_mapping,token2id,noun_chunks = doc.find_pos_tags(sentence)
 
     token_ids = []
     tokenid2word_mapping = []

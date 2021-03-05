@@ -1,6 +1,7 @@
 from utils import compress_attention, create_mapping, BFS, build_graph, is_word
 from multiprocessing import Pool
 import torch
+
 from transformers import AutoTokenizer, BertModel, GPT2Model
 from constant import invalid_relations_set
 from turkish_lemma import TurkishLemmatizer
@@ -43,13 +44,14 @@ def filter_relation_sets(params):
     lemmatizer = TurkishLemmatizer()
     if head in id2token and tail in id2token:
         head = id2token[head]
+	print(head)
         tail = id2token[tail]
         relations = [ lemmatizer.bring_lemma(id2token[idx])  for idx in triplet_idx[1:-1] if idx in id2token ]
         if len(relations) > 0 and check_relations_validity(relations) and head.lower() not in invalid_relations_set and tail.lower() not in invalid_relations_set:
             return {'h': head, 't': tail, 'r': relations, 'c': confidence }
     return {}
 
-def parse_sentence(sentence, tokenizer, encoder, nlp, use_cuda=True):
+def parse_sentence(sentence, tokenizer, encoder,  use_cuda=True):
     '''Implement the match part of MAMA
     '''
     tokenizer_name = str(tokenizer.__str__)
@@ -60,7 +62,7 @@ def parse_sentence(sentence, tokenizer, encoder, nlp, use_cuda=True):
         if use_cuda:
             for key in inputs.keys():
                 inputs[key] = inputs[key].cuda()
-        outputs = encoder(*inputs, output_attentions=True)
+        outputs = encoder(**inputs, output_attentions=True)
     trim = True
     if 'GPT2' in tokenizer_name:
         trim  = False
@@ -91,7 +93,7 @@ def parse_sentence(sentence, tokenizer, encoder, nlp, use_cuda=True):
                 all_relation_pairs += [ (o, id2token) for o in output ]
 
     triplet_text = []
-    with Pool(10, global_initializer, (nlp,)) as pool:
+    with Pool(10) as pool:
         for triplet in pool.imap_unordered(filter_relation_sets, all_relation_pairs):
             if len(triplet) > 0:
                 triplet_text.append(triplet)

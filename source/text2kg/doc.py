@@ -34,7 +34,7 @@ class Doc:
                 token2id[sentence_mapping[-1]] = len(token2id)
         return sentence_mapping,token2id
 
-    def find_chunk(self,sentence,model,tokenizer):
+    def find_chunk(self,res,model,tokenizer):
         start_chunk = []
         end_chunk = []
         noun_chunks = []
@@ -53,11 +53,11 @@ class Doc:
         noun_chunks = [self.get_chunk(res,start_chunk[i],end_chunk[i]) for i in range(len(start_chunk))]
         return start_chunk,end_chunk,noun_chunks
 
-    def find_pos_tags(self,sent):
+    def find_pos_tags(self,sentence):
         res = self.pipeline(sentence)
         start_chunk,end_chunk,noun_chunks = self.find_chunk(res,self.model,self.tokenizer)
         sentence_mapping,token2id = self.get_index(res,start_chunk,end_chunk,noun_chunks)
-        return sentence_mapping, token2id
+        return sentence_mapping, token2id, noun_chunks
 
 
     def sentence_tokenization(self,paragraph):
