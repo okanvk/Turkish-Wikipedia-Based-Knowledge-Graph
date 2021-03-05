@@ -30,6 +30,7 @@ def bfs(args):
 
 def check_relations_validity(relations):
     for rel in relations:
+	print(rel)
         if rel.lower() in invalid_relations_set or rel.isnumeric():
             return False
     return True
@@ -45,6 +46,8 @@ def filter_relation_sets(params):
     if head in id2token and tail in id2token:
         head = id2token[head]
         print(head)
+        print(type(head))
+	
         tail = id2token[tail]
         relations = [ lemmatizer.bring_lemma(id2token[idx])  for idx in triplet_idx[1:-1] if idx in id2token ]
         if len(relations) > 0 and check_relations_validity(relations) and head.lower() not in invalid_relations_set and tail.lower() not in invalid_relations_set:
