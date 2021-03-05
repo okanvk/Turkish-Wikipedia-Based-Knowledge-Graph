@@ -14,5 +14,6 @@ class TurkishLemmatizer():
         analysis = self.analyzer.lemmatize(word)
         if analysis != None:
             return analysis[result_index][lemma_index_in_tuple]
+        return word
 
 
