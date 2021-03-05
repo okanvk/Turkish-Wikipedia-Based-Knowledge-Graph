@@ -52,32 +52,31 @@ if __name__ == '__main__':
 
     with open(input_filename, 'r') as f, open(output_filename, 'w') as g:
         for idx, line in enumerate(tqdm(f)):
-            sentence = line.strip()
-            doc = Doc()
+            sentence  = line.strip()
             if len(sentence):
-            	valid_triplets = []
-            sents = doc.sentence_tokenization(sentence)
-            for sent in sents:
-                        # Match
-                        for triplets in parse_sentence(sent, tokenizer, encoder, nlp, use_cuda=use_cuda):
-                            valid_triplets.append(triplets)
-                        if len(valid_triplets) > 0:
-                            # Map
-                            mapped_triplets = []
-                            for triplet in valid_triplets:
-                                head = triplet['h']
-                                tail = triplet['t']
-                                relations = triplet['r']
-                                conf = triplet['c']
-                                if conf < args.threshold:
-                                    continue
-                                mapped_triplet = Map(head, relations, tail)
-                                if 'h' in mapped_triplet:
-                                    mapped_triplet['c'] = conf
-                                    mapped_triplets.append(mapped_triplet)
-                            output = { 'line': idx, 'tri': deduplication(mapped_triplets) }
+                valid_triplets = []
+                doc = Doc()
+                for sent in doc.sentence_tokenization(sentence):
+                    # Match
+                    for triplets in parse_sentence(sent.text, tokenizer, encoder, nlp, use_cuda=use_cuda):
+                        valid_triplets.append(triplets)
+                if len(valid_triplets) > 0:
+                    # Map
+                    mapped_triplets = []
+                    for triplet in valid_triplets:
+                        head = triplet['h']
+                        tail = triplet['t']
+                        relations = triplet['r']
+                        conf = triplet['c']
+                        if conf < args.threshold:
+                            continue
+                        mapped_triplet = Map(head, relations, tail)
+                        if 'h' in mapped_triplet:
+                            mapped_triplet['c'] = conf
+                            mapped_triplets.append(mapped_triplet)
+                    output = { 'line': idx, 'tri': deduplication(mapped_triplets) }
 
-                            if include_sentence:
-                                output['sent'] = sentence
-                            if len(output['tri']) > 0:
-                                g.write(json.dumps( output )+'\n')
+                    if include_sentence:
+                        output['sent'] = sentence
+                    if len(output['tri']) > 0:
+                        g.write(json.dumps( output )+'\n')
