@@ -1,6 +1,6 @@
-found_invalid = []
+found_invalid = ["of"]
 
-invalid_relations = [] + found_invalid
+invalid_relations = ["of"] + found_invalid
 
 auxiliaries = []
 
