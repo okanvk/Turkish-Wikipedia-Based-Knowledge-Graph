@@ -135,7 +135,6 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
     
     return outputs, tokenid2word_mapping, token2id, noun_chunks
 
-create_mapping("kediler geliyor gidiyorlardı.")
 
 def compress_attention(attention, tokenid2word_mapping, operator=np.mean):
 

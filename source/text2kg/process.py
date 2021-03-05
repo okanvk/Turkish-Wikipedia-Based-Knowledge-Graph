@@ -60,7 +60,7 @@ def parse_sentence(sentence, tokenizer, encoder, nlp, use_cuda=True):
         if use_cuda:
             for key in inputs.keys():
                 inputs[key] = inputs[key].cuda()
-        outputs = encoder(**inputs, output_attentions=True)
+        outputs = encoder(*inputs, output_attentions=True)
     trim = True
     if 'GPT2' in tokenizer_name:
         trim  = False
