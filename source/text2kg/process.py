@@ -40,10 +40,10 @@ def filter_relation_sets(params):
     triplet_idx = triplet[0]
     confidence = triplet[1]
     head, tail = triplet_idx[0], triplet_idx[-1]
+    lemmatizer = TurkishLemmatizer()
     if head in id2token and tail in id2token:
         head = id2token[head]
         tail = id2token[tail]
-	    lemmatizer = TurkishLemmatizer()
         relations = [ lemmatizer.bring_lemma(id2token[idx])  for idx in triplet_idx[1:-1] if idx in id2token ]
         if len(relations) > 0 and check_relations_validity(relations) and head.lower() not in invalid_relations_set and tail.lower() not in invalid_relations_set:
             return {'h': head, 't': tail, 'r': relations, 'c': confidence }
