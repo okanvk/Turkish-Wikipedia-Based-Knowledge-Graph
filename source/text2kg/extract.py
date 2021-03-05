@@ -53,9 +53,9 @@ if __name__ == '__main__':
     with open(input_filename, 'r') as f, open(output_filename, 'w') as g:
         for idx, line in enumerate(tqdm(f)):
             sentence = line.strip()
+            doc = Doc()
             if len(sentence):
             	valid_triplets = []
-                doc = Doc()
 		sents = doc.sentence_tokenization(sentence)
 		for sent in sents:
                     # Match
