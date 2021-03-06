@@ -1,8 +1,8 @@
-found_invalid = ["ve","veya","ki","ni"]
+found_invalid = ["ve","veya","ki","de","da","ni"]
 
-invalid_relations = ["of"] + found_invalid
+invalid_relations = [] + found_invalid
 
-auxiliaries = ["of"]
+auxiliaries = []
 
 with open('../../corpus/trnlp-data/tr_adj.txt', 'r') as f:
     adjectives_trnlp = [ line.strip().lower() for line in f]
