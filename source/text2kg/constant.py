@@ -1,4 +1,4 @@
-found_invalid = ["of"]
+found_invalid = ["ve","veya","ki","ni"]
 
 invalid_relations = ["of"] + found_invalid
 
