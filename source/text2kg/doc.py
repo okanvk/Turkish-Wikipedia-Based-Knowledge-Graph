@@ -45,14 +45,10 @@ class Doc:
                 if not is_noun:
                     start_chunk.append(i)
                     is_noun = True
-                else:
-                    if is_noun:
-                        end_chunk.append(i)
-                        is_noun = False
-                    elif len(res)> i+1:
-                        if res[i]["entity"] == "ADJ" and (res[i+1]["entity"] == "NOUN" or res[i+1]["entity"] == "PROPN"):
-                            start_chunk.append(i)
-                            is_noun = True        
+            else:
+                if is_noun:
+                    end_chunk.append(i)
+                    is_noun = False
 
         noun_chunks = [self.get_chunk(res,start_chunk[i],end_chunk[i]) for i in range(len(start_chunk))]
         return start_chunk,end_chunk,noun_chunks
