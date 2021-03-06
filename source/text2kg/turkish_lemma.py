@@ -13,10 +13,12 @@ class TurkishLemmatizer():
                 
         analysis = self.analyzer.lemmatize(word)
         if analysis != None:
-            res = analysis[result_index][lemma_index_in_tuple]
-	    if len(res) == 0:
+            try:
+                res = analysis[result_index][lemma_index_in_tuple]
+                if len(res) == 0:
+                    return [word]
+                return res
+            except IndexError:
                 return [word]
-            return res
         return [word]
-
 
