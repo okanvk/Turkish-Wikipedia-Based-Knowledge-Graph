@@ -8,6 +8,16 @@ We mainly used two repositories. We constructed a pipeline using both of them in
 Second repository is  <a href="https://github.com/theblackcat102/language-models-are-knowledge-graphs-pytorch"> Link </a> which is non-official implementation of the <a href="https://github.com/informagi/REL"> Language Models are Open Knowledge Graphs </a> paper.
 
 # Dia Parser for Dependency Parsing
+For dependency parsing, we used  <a href="https://github.com/Unipisa/diaparser"> DiaParser </a>. It didn't have pre-trained parser on Turkish, so we trained new parser using <a href="https://github.com/boun-tabi/UD_Turkish-BOUN"> UD_Turkish-BOUN </a> dataset.
+The training dataset contains,
+train: 7803 sentences
+dev: 979
+test: 979
+epoch: 304
+
+## Results
+It took 1 hours 9 minutes on NVIDIA RTX 2080Ti GPU. We get UAS: 83.2% LAS: 74.83%, on development set. We get UAS: 83.05% LAS: 75.41% on test set. 
+
 
 # WikiExtractor
 This script takes as an input a Wikipedia dump and spits out files such as \
