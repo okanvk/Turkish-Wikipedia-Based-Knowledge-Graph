@@ -9,12 +9,7 @@ Second repository is  <a href="https://github.com/theblackcat102/language-models
 
 # Dia Parser for Dependency Parsing
 For dependency parsing, we used  <a href="https://github.com/Unipisa/diaparser"> DiaParser </a>. It didn't have pre-trained parser on Turkish, so we trained new parser using <a href="https://github.com/boun-tabi/UD_Turkish-BOUN"> UD_Turkish-BOUN </a> dataset.
-The training dataset contains,
-train: 7803 sentences
-dev: 979
-test: 979
-epoch: 304
-
+The training dataset contains 7803 sentences for training 979 sentences for development 979 sentences for testing.
 ## Results
 It took 1 hours 9 minutes on NVIDIA RTX 2080Ti GPU. We get UAS: 83.2% LAS: 74.83%, on development set. We get UAS: 83.05% LAS: 75.41% on test set. 
 
