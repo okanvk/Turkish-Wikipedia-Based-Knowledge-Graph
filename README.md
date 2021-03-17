@@ -14,8 +14,9 @@ The training dataset contains 7803 sentences for training 979 sentences for deve
 
 |               Model                 |  UAS on Dev    |  LAS on Dev  | UAS on Test | LAS on Test | 
 |:-----------------------------------:|:--------------:|:----------:|:-----------:|:-------------:|
-| bert-base-turkish-cased             |      83.2%     |   74.83%,  |   83.05%    |     75.41%    |
-| electra-base-turkish-discriminator  |      84.09%    |   75.50    |   84.04%    |     76.06%    |
+| bert-base-turkish-cased             |      83.20%    |   74.83%   |   83.05%    |     75.41%    |
+| electra-base-turkish-discriminator  |      84.09%    |   75.50%   |   84.04%    |     76.06%    |
+| convbert-base-turkish-cased         |      83.12%    |   74.86%   |   82.55%    |     75.21%    |
 
 
 # WikiExtractor
