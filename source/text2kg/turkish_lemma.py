@@ -48,6 +48,13 @@ class TurkishLemmatizer():
             self.lemmatizer, 
             self.finisher])
         
+    def getSparkNlpResult(self,word):
+        data = spark.createDataFrame([R(word)])
+        m = self.pipeline_fast_dl.fit(data).transform(data)
+        sparkRes = m.select('finished_lemma').collect()[0].finished_lemma
+        return [sparkRes]
+        
+        
     def bring_lemma(self,word):
         
         R = Row('sentence')    
@@ -60,18 +67,9 @@ class TurkishLemmatizer():
             try:
                 res = analysis[result_index][lemma_index_in_tuple]
                 if len(res) == 0:
-                    data = spark.createDataFrame([R(word)])
-                    m = self.pipeline_fast_dl.fit(data).transform(data)
-                    sparkRes = m.select('sentence').collect()[0].sentence
-                    return [sparkRes]
+                    return self.getSparkNlpResult(word)
                 return res
             except IndexError:
-                data = spark.createDataFrame([R(word)])
-                m = self.pipeline_fast_dl.fit(data).transform(data)
-                sparkRes = m.select('sentence').collect()[0].sentence
-                return [sparkRes]
-        data = spark.createDataFrame([R(word)])
-        m = self.pipeline_fast_dl.fit(data).transform(data)
-        sparkRes = m.select('sentence').collect()[0].sentence
-        return [sparkRes]
+                self.getSparkNlpResult(word)
+        self.getSparkNlpResult(word)
 
