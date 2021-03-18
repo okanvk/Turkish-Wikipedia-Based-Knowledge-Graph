@@ -67,7 +67,7 @@ class TurkishLemmatizer():
         if analysis != None:
             try:
                 res = analysis[result_index][lemma_index_in_tuple]
-                if len(res) == 0:
+                if len(res) == 0 or len(res) > 1:
                     return self.getSparkNlpResult(word)
                 return res
             except IndexError:
