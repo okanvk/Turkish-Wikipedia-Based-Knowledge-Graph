@@ -38,7 +38,7 @@ finisher = Finisher() \
 pipeline_fast_dl = Pipeline(stages = [
             documentAssembler, 
             tokenizer, 
-            sef.lemmatizer, 
+            lemmatizer, 
             finisher])
 
 
