@@ -24,6 +24,7 @@ class TurkishLemmatizer():
 
 
     def __init__(self):
+	
         self.analyzer = zeyrek.MorphAnalyzer()
         
         self.documentAssembler = DocumentAssembler() \
@@ -48,7 +49,7 @@ class TurkishLemmatizer():
             self.lemmatizer, 
             self.finisher])
 
-	print("init bitti")
+	print("bitti")
     def getSparkNlpResult(self,word):
         
         R = Row('sentence')
