@@ -14,7 +14,7 @@ class TurkishLemmatizer():
     def _bringStanzaLemma(self,word):
         doc = self.nlp(word)
         first_lemma = [word.lemma for sent in doc.sentences for word in sent.words][0]
-        return first_lemma
+        return [first_lemma]
 
     def bring_lemma(self,word):
         result_index = 0
@@ -28,6 +28,3 @@ class TurkishLemmatizer():
             return self._bringStanzaLemma(word)
         return self._bringStanzaLemma(word)
 
-a = TurkishLemmatizer()
-
-print(a._bringStanzaLemma("kitapçılarda"))
