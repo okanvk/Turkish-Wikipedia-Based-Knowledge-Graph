@@ -38,7 +38,7 @@ window=5, iteration=10, negative=15
 
 
 # Lemmatization
-We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://nlp.johnsnowlabs.com/2020/05/03/lemma_tr.html">Turkish lemmatizer in Spark NLP</a> to apply Lemmatization on words.
+We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://stanfordnlp.github.io/stanza/lemma.html">Turkish lemmatizer in stanza</a> to apply Lemmatization on words.
 
 Input: "kedidekiler"
 Output: "kedi"
