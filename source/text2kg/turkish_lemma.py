@@ -55,7 +55,7 @@ class TurkishLemmatizer():
         
         R = Row('sentence')
         data = spark.createDataFrame([R(word)])
-        m = self.pipeline_fast_dl.fit(data).transform(data)
+        m = pipeline_fast_dl.fit(data).transform(data)
         sparkRes = m.select('finished_lemma').collect()[0].finished_lemma
         print(type(sparkRes))
         return sparkRes
