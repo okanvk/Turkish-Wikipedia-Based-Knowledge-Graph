@@ -7,6 +7,8 @@ import argparse
 from tqdm import tqdm
 import json
 from doc import Doc
+from turkish_lemma import TurkishLemmatizer
+
 
 def str2bool(v):
     if isinstance(v, bool):
@@ -36,7 +38,7 @@ parser.add_argument('--threshold', default=0.003,
 args = parser.parse_args()
 
 use_cuda = args.use_cuda
-
+lemmatizer = TurkishLemmatizer()
 language_model = args.language_model
 
 
@@ -58,7 +60,7 @@ if __name__ == '__main__':
                 doc = Doc()
                 for sent in doc.sentence_tokenization(sentence):
                     # Match
-                    for triplets in parse_sentence(sent, tokenizer, encoder,  use_cuda=use_cuda):
+                    for triplets in parse_sentence(sent, tokenizer, encoder, lemmatizer, use_cuda=use_cuda):
                         valid_triplets.append(triplets)
                 if len(valid_triplets) > 0:
                     # Map
