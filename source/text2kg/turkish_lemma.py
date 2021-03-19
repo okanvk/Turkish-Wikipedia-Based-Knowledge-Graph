@@ -49,7 +49,6 @@ class TurkishLemmatizer():
             self.lemmatizer, 
             self.finisher])
 
-	print("bitti")
     def getSparkNlpResult(self,word):
         
         R = Row('sentence')
