@@ -48,6 +48,7 @@ class TurkishLemmatizer():
             self.tokenizer, 
             self.lemmatizer, 
             self.finisher])
+        print("init")
 
     def getSparkNlpResult(self,word):
         
@@ -55,7 +56,7 @@ class TurkishLemmatizer():
         data = spark.createDataFrame([R(word)])
         m = self.pipeline_fast_dl.fit(data).transform(data)
         sparkRes = m.select('finished_lemma').collect()[0].finished_lemma
-	print(type(sparkRes))
+	    print(type(sparkRes))
         return [sparkRes]
         
         
