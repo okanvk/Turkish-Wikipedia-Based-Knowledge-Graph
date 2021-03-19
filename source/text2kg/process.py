@@ -1,7 +1,6 @@
 from utils import compress_attention, create_mapping, BFS, build_graph, is_word
-#from multiprocessing import Pool
+from multiprocessing import Pool
 import torch
-from torch.multiprocessing import Pool, Process, set_start_method
 from transformers import AutoTokenizer, BertModel, GPT2Model
 from constant import invalid_relations_set
 from turkish_lemma import TurkishLemmatizer
@@ -70,7 +69,7 @@ def parse_sentence(sentence, tokenizer, encoder,  use_cuda=True):
     Use average of last layer attention : page 6, section 3.1.2
     '''
     attention = process_matrix(outputs[2], avg_head=True, trim=trim, use_cuda=use_cuda)
-    set_start_method("spawn",force=True)
+
     merged_attention = compress_attention(attention, tokenid2word_mapping)
     attn_graph = build_graph(merged_attention)
 
