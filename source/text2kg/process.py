@@ -93,7 +93,7 @@ def parse_sentence(sentence, tokenizer, encoder,lemmatizer,  use_cuda=True):
                 all_relation_pairs += [ (o, id2token) for o in output ]
 
     triplet_text = []
-    with Pool(10, global_initializer, (nlp,)) as pool:
+    with Pool(10, global_initializer, (lemmatizer,)) as pool:
         for triplet in pool.imap_unordered(filter_relation_sets, all_relation_pairs):
             if len(triplet) > 0:
                 triplet_text.append(triplet)
