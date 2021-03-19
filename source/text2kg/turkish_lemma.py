@@ -20,6 +20,28 @@ else:
     
 spark = sparknlp.start()
 
+documentAssembler = DocumentAssembler() \
+            .setInputCol("sentence") \
+            .setOutputCol("document")
+
+tokenizer = Tokenizer() \
+            .setInputCols(["document"]) \
+            .setOutputCol("token")
+
+lemmatizer = LemmatizerModel.pretrained("lemma","tr") \
+            .setInputCols(["token"]) \
+            .setOutputCol("lemma")
+finisher = Finisher() \
+            .setInputCols([ "lemma"]) \
+            .setIncludeMetadata(True)
+
+pipeline_fast_dl = Pipeline(stages = [
+            documentAssembler, 
+            tokenizer, 
+            sef.lemmatizer, 
+            finisher])
+
+
 class TurkishLemmatizer():
 
 
@@ -27,27 +49,6 @@ class TurkishLemmatizer():
 	
         self.analyzer = zeyrek.MorphAnalyzer()
         
-        self.documentAssembler = DocumentAssembler() \
-            .setInputCol("sentence") \
-            .setOutputCol("document")
-
-        self.tokenizer = Tokenizer() \
-            .setInputCols(["document"]) \
-            .setOutputCol("token")
-
-        self.lemmatizer = LemmatizerModel.pretrained("lemma","tr") \
-            .setInputCols(["token"]) \
-            .setOutputCol("lemma")
-
-        self.finisher = Finisher() \
-            .setInputCols([ "lemma"]) \
-            .setIncludeMetadata(True)
-
-        self.pipeline_fast_dl = Pipeline(stages = [
-            self.documentAssembler, 
-            self.tokenizer, 
-            self.lemmatizer, 
-            self.finisher])
 
 
     def getSparkNlpResult(self,word):
