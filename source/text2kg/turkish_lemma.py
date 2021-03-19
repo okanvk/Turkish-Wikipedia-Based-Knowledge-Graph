@@ -57,7 +57,7 @@ class TurkishLemmatizer():
         m = self.pipeline_fast_dl.fit(data).transform(data)
         sparkRes = m.select('finished_lemma').collect()[0].finished_lemma
         print(type(sparkRes))
-        return [sparkRes]
+        return sparkRes
         
         
     def bring_lemma(self,word):
@@ -78,4 +78,4 @@ class TurkishLemmatizer():
         return self.getSparkNlpResult(word)
 
 a = TurkishLemmatizer()
-print(a.bring_lemma("kediler"))
+print(a.bring_lemma("gözlükler"))
