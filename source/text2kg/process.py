@@ -1,10 +1,9 @@
 from utils import compress_attention, create_mapping, BFS, build_graph, is_word
-#from multiprocessing import Pool
+from multiprocessing import Pool
 import torch
 from transformers import AutoTokenizer, BertModel, GPT2Model
 from constant import invalid_relations_set
 from turkish_lemma import TurkishLemmatizer
-from torch.multiprocessing import Pool, Process, set_start_method
 
 
 def process_matrix(attentions, layer_idx = -1, head_num = 0, avg_head=False, trim=True, use_cuda=True):
@@ -88,7 +87,6 @@ def parse_sentence(sentence, tokenizer, encoder,lemmatizer,  use_cuda=True):
     all_relation_pairs = []
     id2token = { value: key for key, value in token2id.items()}
 
-    set_start_method("spawn",force=True)
 
     with Pool(10) as pool:
         params = [  ( pair[0], pair[1], attn_graph, max(tokenid2word_mapping), black_list_relation, ) for pair in tail_head_pairs]

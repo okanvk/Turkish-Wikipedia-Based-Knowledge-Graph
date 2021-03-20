@@ -9,7 +9,7 @@ class TurkishLemmatizer():
 
     def __init__(self):
         self.analyzer = zeyrek.MorphAnalyzer()
-        self.nlp = stanza.Pipeline(lang='tr', processors='tokenize,lemma',use_gpu=True)
+        self.nlp = stanza.Pipeline(lang='tr', processors='tokenize,lemma',use_gpu=False)
 
     def _bringStanzaLemma(self,word):
         doc = self.nlp(word)
