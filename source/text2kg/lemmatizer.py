@@ -101,13 +101,11 @@ try:
 except IOError:
 	print("Please run trainLexicon.py to generate revisedDict.pkl file")
 
-if(len(sys.argv)<1):
-	print("Please provide a word as a system arguments")
-	sys.exit(0)
 
 
-word = sys.argv[1]
-print("Possible lemmas for",word,"in ranked order:")
-findings = findPos(word.lower(), revisedDict)
-for finding in findings:
-	print(finding[0])
+def bring_first_lemma(word):
+    findings = findPos(word, revisedDict)
+    if len(findings) > 0:
+        return findings[0][:-2]
+    else:
+        return [word]
