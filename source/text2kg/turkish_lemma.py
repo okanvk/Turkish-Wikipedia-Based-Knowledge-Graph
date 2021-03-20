@@ -11,9 +11,9 @@ class TurkishLemmatizer():
         try:
             res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
             if len(res) == 0 or len(res) >= 1:
-               return self.bring_first_lemma(word)
+               return bring_first_lemma(word)
             return res
         except IndexError:
-            return self.bring_first_lemma(word)
-        return self.bring_first_lemma(word)
+            return bring_first_lemma(word)
+        return bring_first_lemma(word)
 
