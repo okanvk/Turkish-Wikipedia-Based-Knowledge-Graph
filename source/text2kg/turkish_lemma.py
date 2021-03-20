@@ -20,7 +20,7 @@ class TurkishLemmatizer():
         result_index = 0
         lemma_index_in_tuple = 1
         #try:
-        res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
+        #res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
         return ["kelime"]
             #if len(res) == 0 or len(res) >= 1:
             #    return self._bringStanzaLemma(word)
