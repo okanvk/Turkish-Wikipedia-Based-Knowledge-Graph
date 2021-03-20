@@ -17,8 +17,8 @@ class TurkishLemmatizer():
         return [first_lemma]
 
     def bring_lemma(self,word):
-        #result_index = 0
-        #lemma_index_in_tuple = 1
+        result_index = 0
+        lemma_index_in_tuple = 1
         #try:
         res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
         return ["kelime"]
