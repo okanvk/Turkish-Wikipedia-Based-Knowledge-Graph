@@ -105,6 +105,7 @@ if(len(sys.argv)<1):
 	print("Please provide a word as a system arguments")
 	sys.exit(0)
 
+
 word = sys.argv[1]
 print("Possible lemmas for",word,"in ranked order:")
 findings = findPos(word.lower(), revisedDict)
