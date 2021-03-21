@@ -20,7 +20,7 @@ def Map(head, relations, tail, top_first=True, best_scores = True):
     valid_relations = [ r for r in relations if r not in invalid_relations_set and r.isalpha() and len(r) > 1 ]
     if len(valid_relations) == 0:
         return {}
-
+    print(valid_relations)
     return { 'h': head_p_e_m[0], 't': tail_p_e_m[0], 'r': '_'.join(valid_relations)  }
 
 def deduplication(triplets):

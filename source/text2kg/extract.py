@@ -79,5 +79,8 @@ if __name__ == '__main__':
 
                     if include_sentence:
                         output['sent'] = sentence
+
+                    print("output")
+                    print(output)
                     if len(output['tri']) > 0:
                         g.write(json.dumps( output )+'\n')
