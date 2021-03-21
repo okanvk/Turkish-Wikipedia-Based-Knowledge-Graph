@@ -7,18 +7,21 @@ emb = GenericLookup("entity_word_embedding", save_dir=sqlite_path, table_name="e
 
 
 def Map(head, relations, tail, top_first=True, best_scores = True):
-    print(head,tail,relations)
     if head == None or tail == None or relations == None:
         return {}
     head_p_e_m = emb.wiki(str(head), 'wiki')
     if head_p_e_m is None:
+        print("return")
         return {}
     tail_p_e_m = emb.wiki(str(tail), 'wiki')
     if tail_p_e_m is None:
+        print("return tail")
         return {}
     tail_p_e_m = tail_p_e_m[0]
     head_p_e_m = head_p_e_m[0]
     valid_relations = [ r for r in relations if r not in invalid_relations_set and r.isalpha() and len(r) > 1 ]
+    print("relations",relations)
+    print("valid",valid_relations)
     if len(valid_relations) == 0:
         return {}
     return { 'h': head_p_e_m[0], 't': tail_p_e_m[0], 'r': '_'.join(valid_relations)  }
