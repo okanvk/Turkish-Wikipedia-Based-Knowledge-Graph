@@ -106,6 +106,6 @@ except IOError:
 def bring_first_lemma(word):
     findings = findPos(word, revisedDict)
     if len(findings) > 0:
-        return findings[0][:-2]
+        return [findings[0][:-2]]
     else:
         return [word]
