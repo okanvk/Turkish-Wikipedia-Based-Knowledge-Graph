@@ -12,7 +12,7 @@ class TurkishLemmatizer():
         try:
             res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
             if len(res) == 0 or len(res) >= 1:
-                word bring_first_lemma(word)
+                word = bring_first_lemma(word)
                 print(word)
                 return word
             return res
