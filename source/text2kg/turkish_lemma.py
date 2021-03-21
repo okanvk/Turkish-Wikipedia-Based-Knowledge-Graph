@@ -11,6 +11,8 @@ class TurkishLemmatizer():
         word = word.lower()
         try:
             res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
+            print("res")
+            print(res)
             if len(res) == 0 or len(res) >= 1:
                 word = bring_first_lemma(word)
                 print(word)
