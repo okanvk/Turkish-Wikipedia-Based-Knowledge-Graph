@@ -11,13 +11,10 @@ class TurkishLemmatizer():
         word = word.lower()
 
         try:
-            res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
-
-            if len(res) == 0 or len(res) >= 1:
+            res = self.analyzer.lemmatize(word)[result_index][lemma_index_in_tuple]
+            if len(res) == 0 and len(res) >= 1:
                 return bring_first_lemma(word)
-
-            print(res[1])
-            return res[1]
+            return res
         except IndexError:
              return bring_first_lemma(word)
         return bring_first_lemma(word)
