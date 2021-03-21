@@ -8,12 +8,18 @@ class TurkishLemmatizer():
     def bring_lemma(self,word):
         result_index = 0
         lemma_index_in_tuple = 1
+        word = word.lower()
         try:
             res = self.analyzer.analyze(word)[result_index][lemma_index_in_tuple]
             if len(res) == 0 or len(res) >= 1:
-               return bring_first_lemma(word)
+                word bring_first_lemma(word)
+                print(word)
+                return word
             return res
         except IndexError:
-            return bring_first_lemma(word)
-        return bring_first_lemma(word)
-
+             word =  bring_first_lemma(word)
+             print(word)
+             return word
+        word =  bring_first_lemma(word)
+        print(word)
+        return word
