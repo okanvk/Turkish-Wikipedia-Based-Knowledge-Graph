@@ -35,13 +35,11 @@ window=5, iteration=10, negative=15
 <a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a> \
 <a href="/">DB Dump soon!</a> 
 
-
+# NER
+https://huggingface.co/savasy/bert-base-turkish-ner-cased
 
 # Lemmatization
-We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://stanfordnlp.github.io/stanza/lemma.html">Turkish lemmatizer in stanza</a> to apply Lemmatization on words.
-
-Input: "kedidekiler"
-Output: "kedi"
+We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://github.com/akoksal/Turkish-Lemmatizer">Turkish lemmatizer </a> to apply Lemmatization on words.
 
 
 # Adjective, Adverb, Verb Corpus
