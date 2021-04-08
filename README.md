@@ -28,15 +28,16 @@ wiki_disambiguation.txt.
 <a href="https://github.com/informagi/REL/blob/master/scripts/WikiExtractor.py">You can find WikiExtractor script from here.</a>
 
 # Wikipedia2Vec
-We used Wikipedia2Vec to obtain page embeddings.
-Total number of word occurrences: 457850145
-window=5, iteration=10, negative=15
+We used Wikipedia2Vec to obtain page embeddings. \
+Total number of word occurrences: 457850145 \
+window=5, iteration=10, negative=15 \
+
 <a href="https://wikipedia2vec.github.io/wikipedia2vec/pretrained/">You can access Wikipedia2Vec official page from here.</a> \
 <a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a> \
-<a href="/">DB Dump soon!</a> 
+<a href="/">Binary file soon!</a> 
 
 # NER
-https://huggingface.co/savasy/bert-base-turkish-ner-cased
+https://huggingface.co/Alaeddin/convbert-base-turkish-ner-cased
 
 # Lemmatization
 We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://github.com/akoksal/Turkish-Lemmatizer">Turkish lemmatizer </a> to apply Lemmatization on words.
