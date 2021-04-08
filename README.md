@@ -31,7 +31,7 @@ wiki_disambiguation.txt.
 
 ```
 from wikipedia2vec import Wikipedia2Vec
-wiki2vec = Wikipedia2Vec.load()
+wiki2vec = Wikipedia2Vec.load('wikipedia2vec_trained')
 wiki2vec.most_similar(wiki2vec.get_entity('Atatürk'), 5)
 
 >>> [(<Entity Mustafa Kemal Atatürk>, 0.9999999), (<Word atatürk>, 0.9274426), (<Word kemal>, 0.782923), (<Entity Kategori:Mustafa Kemal Atatürk>, 0.77045125), (<Entity Yardım:Açıklamalı sayfa>, 0.7423448)]
