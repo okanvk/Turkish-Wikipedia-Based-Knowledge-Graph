@@ -44,7 +44,6 @@ wiki2vec.most_similar(wiki2vec.get_entity('Fatih Terim'), 5)
 >>> [(<Entity Fatih Terim>, 1.0), (<Entity Şenol Güneş>, 0.7102364), (<Entity Müfit Erkasap>, 0.6819058), (<Entity Abdullah Avcı>, 0.67471796), (<Word hiddink>, 0.6672677)]
 
 ```
-
 We used Wikipedia2Vec to obtain page embeddings. \
 Total number of word occurrences: 457850145 \
 Hyperparameters: window=5, iteration=10, negative=15 
@@ -54,7 +53,27 @@ Hyperparameters: window=5, iteration=10, negative=15
 <a href="/">Binary file soon!</a> 
 
 # NER
-https://huggingface.co/Alaeddin/convbert-base-turkish-ner-cased
+We trained a Named Entity Recognition which is trained with <a href="https://huggingface.co/dbmdz/convbert-base-turkish-cased"> Convberturk </a> language model
+
+## Model Parameters
+Batch size : 32 \
+Epoch : 5 \
+Maximum sequence length : 512
+
+## Dataset
+We used <a href="https://arxiv.org/abs/2003.11080"> Xtreme Dataset</a> in order to train, test and validate our model.
+We trained convbert model with merging train and extra files and we got the results on validation file. 
+
+## Results
+The results are shown below
+
+|  Precision |  Recall  | F1 | loss |
+|:-----------------:|:--------------:|:----------:|:----------:|
+|     95.83         |      96.84      |    96.33   |   0.0665
+
+
+## Model link
+You can access our convbert Named Entity Recognition model from <a href="https://huggingface.co/Alaeddin/convbert-base-turkish-ner-cased"> here </a>
 
 # Lemmatization
 We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://github.com/akoksal/Turkish-Lemmatizer">Turkish lemmatizer </a> to apply Lemmatization on words.
