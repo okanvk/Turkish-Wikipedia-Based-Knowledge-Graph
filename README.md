@@ -52,6 +52,28 @@ Hyperparameters: window=5, iteration=10, negative=15
 <a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a> \
 <a href="/">Binary file soon!</a> 
 
+# POS
+We trained a model for Part of Speech Tagging which is trained with <a href="https://huggingface.co/dbmdz/bert-base-turkish-128k-cased"> Bert Turk </a> language model
+
+## Model Parameters
+Batch size : 8 \
+Epoch : 10 \
+Maximum sequence length : 128
+
+## Dataset
+We used <a href="https://github.com/UniversalDependencies/UD_Turkish-IMST"> UD Turkish IMST Dataset </a> in order to train, test and validate our model.
+
+## Results
+The results are shown below
+
+|  Precision |  Recall  | F1 | loss |
+|:-----------------:|:--------------:|:----------:|:----------:|
+|     95.94         |      96.04      |    95.99   |   0.1625
+
+
+## Model link
+You can access our Bert Part of Speech tagging model from <a href="https://huggingface.co/mustafabaris/tr_kg_pos_conllu_bert"> here </a>
+
 # NER
 We trained a Named Entity Recognition which is trained with <a href="https://huggingface.co/dbmdz/convbert-base-turkish-cased"> Convberturk </a> language model
 
