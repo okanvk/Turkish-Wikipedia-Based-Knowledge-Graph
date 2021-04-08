@@ -28,6 +28,23 @@ wiki_disambiguation.txt.
 <a href="https://github.com/informagi/REL/blob/master/scripts/WikiExtractor.py">You can find WikiExtractor script from here.</a>
 
 # Wikipedia2Vec
+
+```
+from wikipedia2vec import Wikipedia2Vec
+wiki2vec = Wikipedia2Vec.load()
+wiki2vec.most_similar(wiki2vec.get_entity('Atatürk'), 5)
+
+>>> [(<Entity Mustafa Kemal Atatürk>, 0.9999999), (<Word atatürk>, 0.9274426), (<Word kemal>, 0.782923), (<Entity Kategori:Mustafa Kemal Atatürk>, 0.77045125), (<Entity Yardım:Açıklamalı sayfa>, 0.7423448)]
+
+```
+
+```
+wiki2vec.most_similar(wiki2vec.get_entity('Fatih Terim'), 5)
+
+>>> [(<Entity Fatih Terim>, 1.0), (<Entity Şenol Güneş>, 0.7102364), (<Entity Müfit Erkasap>, 0.6819058), (<Entity Abdullah Avcı>, 0.67471796), (<Word hiddink>, 0.6672677)]
+
+```
+
 We used Wikipedia2Vec to obtain page embeddings. \
 Total number of word occurrences: 457850145 \
 Hyperparameters: window=5, iteration=10, negative=15 
