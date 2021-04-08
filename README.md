@@ -52,7 +52,7 @@ Hyperparameters: window=5, iteration=10, negative=15
 <a href="https://dumps.wikimedia.org/trwiki/20210220/">You can access 2021 Turkish Wikipedia Dump from here.</a> \
 <a href="/">Binary file soon!</a> 
 
-# POS
+# POS
 We trained a model for Part of Speech Tagging which is trained with <a href="https://huggingface.co/dbmdz/bert-base-turkish-128k-cased"> Bert Turk </a> language model
 
 ## Model Parameters
