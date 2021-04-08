@@ -1,5 +1,5 @@
 ## Turkish-Wikipedia-Based-Knowledge-Graph
-This repository includes a Knowledge Graph construction project from Turkish Wikipedia pages. This project constructs a Knowledge Graph from Turkish wikipedia dump, using both the unstructured texts and information boxes. It is developed under inzva AI Projects #6 event, with a group of 4 developers. 
+This repository includes a Knowledge Graph construction project from Turkish Wikipedia pages. This project constructs a Knowledge Graph from Turkish wikipedia dump, using both the unstructured texts and information boxes. It is developed under inzva AI Projects #6 event, with a group of 4 researchers. 
 
 ![alt text](https://github.com/okanvk/Turkish-Wikipedia-Based-Knowledge-Graph/blob/main/img/ai6.jpeg?raw=true)
 
