@@ -18,7 +18,7 @@ The training dataset contains 7803 sentences for training 979 sentences for deve
 | electra-base-turkish-discriminator  |      84.22%    |   75.64%   |   83.53%    |     75.87%    |
 | convbert-base-turkish-cased         |      83.12%    |   74.86%   |   82.55%    |     75.21%    |
 
-You can access dependency parser model from <a href="https://github.com/Unipisa/diaparser">Diaparser library</a>
+You can access our dependency parser model from <a href="https://github.com/Unipisa/diaparser">Diaparser library</a>
 
 
 # WikiExtractor
