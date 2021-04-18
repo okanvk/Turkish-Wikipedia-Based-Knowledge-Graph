@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Network</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+    ></script>
+    <style type="text/css">
+      #mynetwork {
+        width: 600px;
+        height: 400px;
+        border: 1px solid lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mynetwork"></div>
+    <script type="text/javascript">
+
+
+      var readJson = 
+
+        {"line": "Cumhuriyet_Halk_Partisi", "tri": [{"h": "Cumhuriyet_Halk_Partisi", "t": "chp", "r": "k\u0131saltma", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Kemal_K\u0131l\u0131\u00e7daro\u011flu", "r": "genel_bas\u0327kan", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Selin_Sayek_B\u00f6ke", "r": "genel_sekreter", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Mustafa_Kemal_Atat\u00fcrk", "r": "kurucu", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-program-1", "r": "kurucu", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Faik_\u00d6ztrak_(siyaset\u00e7i,_1954)", "r": "parti_so\u0308zcu\u0308su\u0308", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-2", "r": "slogan(lar\u0131)", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-3", "r": "slogan(lar\u0131)", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": " (97 y\u0131l o\u0308nce", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": " (1923-09-09)", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "1923-09-09", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": " (28 y\u0131l o\u0308nce", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": " (1992-09-09)", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "1992-09-09", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "9 eylu\u0308l 1923", "r": "kurulus\u0327_tarihi", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "H\u00fcrriyet_Partisi", "r": "birles\u0327me", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyaldemokrat_Halk\u00e7\u0131_Parti", "r": "birles\u0327me", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Yeni_T\u00fcrkiye_Partisi_(2002)", "r": "birles\u0327me", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Terakkiperver_Cumhuriyet_F\u0131rkas\u0131", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Serbest_Cumhuriyet_F\u0131rkas\u0131", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Demokrat_Parti_(1946)", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Cumhuriyet\u00e7i_G\u00fcven_Partisi", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Anadolu_Partisi", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Yenilik_Partisi", "r": "bo\u0308lu\u0308nme", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Anadolu_Ve_Rumeli_M\u00fcd\u00e2faa-i_Hukuk_Cemiyeti", "r": "o\u0308ncu\u0308lu\u0308", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyal_Demokrasi_Partisi", "r": "ard\u0131l\u0131", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Halk\u00e7\u0131_Parti", "r": "ard\u0131l\u0131", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyaldemokrat_Halk\u00e7\u0131_Parti", "r": "ard\u0131l\u0131", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Demokratik_Sol_Parti", "r": "ard\u0131l\u0131", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "\u00e7ankaya", "r": "merkez", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "ankara", "r": "merkez", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "https://milletdergisi.chp.org.tr/", "r": "gazete(leri)", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "https://www.chpgenclikkollari.org.tr/", "r": "genc\u0327lik_kolu", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-4", "r": "u\u0308yelik__(2021)", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "atat\u00fcrk\u00e7\u00fcl\u00fck", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-program-1", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "i\u0307lericilik", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyal_Demokrasi", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "ulusalc\u0131l\u0131k", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-5", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Demokratik_Sosyalizm", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-e\u011filimler-6", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyal_Liberalizm", "r": "i\u0307deoloji", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Merkez_Sol", "r": "siyasi_pozisyon", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Millet_I\u0307ttifak\u0131", "r": "ulusal_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Sosyalist_Enternasyonal", "r": "uluslararas\u0131_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-program-1", "r": "uluslararas\u0131_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "I\u0307lerici_I\u0307ttifak", "r": "uluslararas\u0131_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "Avrupa_Sosyalistler_Partisi", "r": "avrupa_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "#cite_note-program-1", "r": "avrupa_u\u0308yelik", "c": 1}, {"h": "Cumhuriyet_Halk_Partisi", "t": "    ", "r": "resmi\u0302_renkleri", "c": 1}]}
+
+
+      
+
+      var nodeArr = [];
+      var allNodes = [];
+
+      for(var i = 0; i < readJson["tri"].length; i++)
+      {
+        if(!allNodes.includes(readJson["tri"][i].h))
+        {
+          allNodes.push(readJson["tri"][i].h);
+        }
+
+        if(!allNodes.includes(readJson["tri"][i].t))
+        {
+          allNodes.push(readJson["tri"][i].t);
+        }
+
+      }
+      var edgeArr = [];
+      for(var i = 0; i < allNodes.length; i++)
+      {
+        nodeArr.push({id: i , label: allNodes[i]});
+      }
+      for(var i = 0; i < readJson["tri"].length; i++)
+      {
+        var node1 = readJson["tri"][i].h;
+        var node2 = readJson["tri"][i].t;
+
+        var id1;
+        var id2;
+
+        for(var j = 0; j < nodeArr.length; j++)
+        {
+          
+          if(nodeArr[j]["label"] == node1)
+          {
+            id1 = nodeArr[j]["id"];
+          }
+
+          if(nodeArr[j]["label"] == node2)
+          {
+            id2 = nodeArr[j]["id"];
+          }
+
+        }
+        var edge = {from: id1, to: id2, label: readJson["tri"][i].r};
+        edgeArr.push(edge);
+
+      }
+      var nodes = new vis.DataSet(nodeArr);
+      var edges = new vis.DataSet(edgeArr);
+      var container = document.getElementById("mynetwork");
+      var data = {
+        nodes: nodes,
+        edges: edges,
+      };
+      var options = {};
+      var network = new vis.Network(container, data, options);
+    </script>
+  </body>
+</html>
