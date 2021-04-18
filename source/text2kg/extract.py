@@ -8,6 +8,7 @@ from tqdm import tqdm
 import json
 from doc import Doc
 from turkish_lemma import TurkishLemmatizer
+from getRelationsFromWikipedia import getInfoBox,getRelation
 
 
 def str2bool(v):
@@ -24,7 +25,7 @@ parser = argparse.ArgumentParser(description='Process lines of text corpus into 
 parser.add_argument('input_filename', type=str, help='text file as input')
 parser.add_argument('output_filename', type=str, help='output text file')
 parser.add_argument('--language_model',default='dbmdz/bert-base-turkish-cased', 
-                    choices=[ 'dbmdz/bert-base-turkish-cased', 'bert-base-turkish-uncased'],
+                    choices=[ 'dbmdz/bert-base-turkish-cased'],
                     help='which language model to use')
 parser.add_argument('--use_cuda', default=True, 
                         type=str2bool, nargs='?',
@@ -51,6 +52,8 @@ if __name__ == '__main__':
     output_filename = args.output_filename
     include_sentence = args.include_text_output
 
+    cached_entity_links = set()
+    
     with open(input_filename, 'r') as f, open(output_filename, 'w') as g:
         for idx, line in enumerate(tqdm(f)):
             sentence  = line.strip()
@@ -83,4 +86,21 @@ if __name__ == '__main__':
                     print("output")
                     print(output)
                     if len(output['tri']) > 0:
+                        
+                        for triplet in output["tri"]:
+                            header =triplet["h"]
+                            tail = triplet["t"]
+                            
+                            if header not in cached_entity_links:
+                                cached_entity_links.add(header)
+                                header_infobox = getInfoBox(header)
+                                header_triplets = getRelation(header_infobox,header)
+                                g.write(json.dumps( header_triplets )+'\n')
+                                
+                            if tail not in cached_entity_links:
+                                cached_entity_links.add(tail)    
+                                tail_infobox = getInfoBox(tail)
+                                tail_triplets = getRelation(tail_infobox,tail)
+                                g.write(json.dumps( tail_triplets )+'\n')
+                            
                         g.write(json.dumps( output )+'\n')
