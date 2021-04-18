@@ -77,6 +77,14 @@ def getRelation(data,pageName):
                         t = value['name'].lower()
                     if len(t) > 0:
                         temp_r = key.lower().replace(' ','_')
+                        
+                        if temp_r.isspace() or t.find("#") != -1 or t.isspace():
+                          continue
+
+                        temp_r = temp_r.replace("("," ")
+                        temp_r = temp_r.replace(")"," ")
+                        temp_r = re.sub(' +', ' ', temp_r)
+
                         temp_unique = temp_r+t
                         if temp_unique not in unique:
                             clean_tail = clear_tail(t)
@@ -98,4 +106,3 @@ def getRelation(data,pageName):
         triplets.append(triplet)
     output = {"line" : pageName, "tri" : triplets}
     return output
-
