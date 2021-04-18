@@ -99,6 +99,14 @@ The results are shown below
 ## Model link
 You can access our convbert Named Entity Recognition model from <a href="https://huggingface.co/Alaeddin/convbert-base-turkish-ner-cased"> here </a>
 
+# Wikipedia Information Box Relation Extraction
+
+![alt text](https://github.com/okanvk/Turkish-Wikipedia-Based-Knowledge-Graph/blob/main/img/tarkan.jpeg?raw=true)
+
+This information box relations extract from <a href="https://tr.wikipedia.org/wiki/Tarkan"> Tarkan wikipedia page </a> 
+
+
+
 # Lemmatization
 We used the combination of <a href="https://github.com/obulat/zeyrek/">Zeyrek</a>  and <a href="https://github.com/akoksal/Turkish-Lemmatizer">Turkish lemmatizer </a> to apply Lemmatization on words.
 
