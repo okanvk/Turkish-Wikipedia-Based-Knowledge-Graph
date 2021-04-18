@@ -86,10 +86,10 @@ def getRelation(data,pageName):
                 if len(list(temp.keys())) > 1 :
                     result.append(temp)
     except:
-        return []
+        return {"line" : pageName, "tri" : []}
 
     if len(result) == 0:
-        return []
+        return {"line" : pageName, "tri" : []}
     
     triplets = []
     for res in result:
