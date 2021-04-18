@@ -90,4 +90,11 @@ def getRelation(data,pageName):
 
     if len(result) == 0:
         return []
-    return result
+    
+    triplets = []
+    for res in result:
+      response_triplets = res["tri"]
+      for triplet in response_triplets:
+        triplets.append(triplet)
+    {"line" : pageName, "tri" : triplets}
+    return triplets
