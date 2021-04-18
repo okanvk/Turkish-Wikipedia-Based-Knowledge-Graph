@@ -11,7 +11,6 @@ def Map(head, relations, tail, top_first=True, best_scores = True):
         return {}
     head_p_e_m = emb.wiki(str(head), 'wiki')
     if head_p_e_m is None:
-        print("return")
         return {}
     tail_p_e_m = emb.wiki(str(tail), 'wiki')
     if tail_p_e_m is None:
