@@ -102,5 +102,6 @@ if __name__ == '__main__':
                                 tail_infobox = getInfoBox(tail)
                                 tail_triplets = getRelation(tail_infobox,tail)
                                 g.write(json.dumps( tail_triplets )+'\n')
+                                print(tail + " written on json")
                             
                         g.write(json.dumps( output )+'\n')
