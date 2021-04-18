@@ -96,5 +96,6 @@ def getRelation(data,pageName):
       response_triplets = res["tri"]
       for triplet in response_triplets:
         triplets.append(triplet)
-    {"line" : pageName, "tri" : triplets}
-    return triplets
+    output = {"line" : pageName, "tri" : triplets}
+    return output
+
