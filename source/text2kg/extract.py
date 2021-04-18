@@ -85,6 +85,7 @@ if __name__ == '__main__':
 
                     print("output")
                     print(output)
+                    print(len(output["tri"]))
                     if len(output['tri']) > 0:
                         
                         for triplet in output["tri"]:
@@ -104,4 +105,5 @@ if __name__ == '__main__':
                                 g.write(json.dumps( tail_triplets )+'\n')
                                 print(tail + " written on json")
                             
+                        print("output dump")
                         g.write(json.dumps( output )+'\n')
