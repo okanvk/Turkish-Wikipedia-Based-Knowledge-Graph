@@ -88,7 +88,7 @@ class Doc:
             if mode == 0:
                 sentence_mapping.append(token.text)
                 token2id[sentence_mapping[-1]] = len(token2id)
-       return sentece_mapping,token2id
+        return sentence_mapping,token2id
 
 
 
@@ -99,7 +99,7 @@ class Doc:
         res = nlp_grouped(sentence)   
         ners = self._bringNers(res)        
         start_chunk,end_chunk,ner_chunks = self._bringChunks(doc,ners) 
-        sentence_mapping,token2id = self.get_index(doc,start_chunk,end_chunk,ner_chunks)
+        sentence_mapping,token2id = self._get_index(doc,start_chunk,end_chunk,ner_chunks)
         return sentence_mapping, token2id, ner_chunks
 
 
