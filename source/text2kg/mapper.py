@@ -21,13 +21,13 @@ def Map(head, relations, tail, top_first=True, best_scores = True):
     final_head_p_e_m = head_p_e_m[0]
     
     for t_ex in tail_p_e_m:
-        if t_ex == "_".join(tail.split()) or t_ex.find("_".join(tail.split())) != -1:
-            final_tail_p_e_m = t_ex
+        if t_ex[0] == "_".join(tail.split()) or t_ex[0].find("_".join(tail.split())) != -1:
+            final_tail_p_e_m = t_ex[0]
             break
             
     for h_ex in head_p_e_m:
-        if h_ex == "_".join(head.split()) or t_ex.find("_".join(head.split())) != -1:
-            final_head_p_e_m = h_ex
+        if h_ex[0] == "_".join(head.split()) or h_ex[0].find("_".join(head.split())) != -1:
+            final_head_p_e_m = h_ex[0]
             break
 
     
