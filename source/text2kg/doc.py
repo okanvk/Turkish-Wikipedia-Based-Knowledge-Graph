@@ -13,11 +13,11 @@ class Doc:
         self.tokenizer = AutoTokenizer.from_pretrained("Alaeddin/convbert-base-turkish-ner-cased")
         self.model = AutoModelForTokenClassification.from_pretrained("Alaeddin/convbert-base-turkish-ner-cased")
         self.config = PretrainedConfig.from_pretrained("Alaeddin/convbert-base-turkish-ner-cased")
-        self.pipeline = pipeline('ner', model=model, tokenizer=tokenizer, config=config)
+        self.pipeline = pipeline('ner', model=self.model, tokenizer=self.tokenizer, config=self.config)
         self.nlp = spacy.load("en_core_web_sm")
         self.nlp_grouped = TokenClassificationPipeline(
-            model=model,
-            tokenizer=tokenizer,
+            model=self.model,
+            tokenizer=self.tokenizer,
             grouped_entities=True
         )
 
