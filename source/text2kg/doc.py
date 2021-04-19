@@ -96,7 +96,7 @@ class Doc:
         
         sentence = re.sub(r"'\w+|’\w+", '', sentence)
         doc = self.nlp(sentence)
-        res = nlp_grouped(sentence)   
+        res = self.nlp_grouped(sentence)   
         ners = self._bringNers(res)        
         start_chunk,end_chunk,ner_chunks = self._bringChunks(doc,ners) 
         sentence_mapping,token2id = self._get_index(doc,start_chunk,end_chunk,ner_chunks)
