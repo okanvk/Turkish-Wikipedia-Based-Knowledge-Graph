@@ -17,18 +17,25 @@ def Map(head, relations, tail, top_first=True, best_scores = True):
         return {}
     
     
-    tail_p_e_m = tail_p_e_m[0]
-    head_p_e_m = head_p_e_m[0]
+    final_tail_p_e_m = tail_p_e_m[0]
+    final_head_p_e_m = head_p_e_m[0]
     
     for t_ex in tail_p_e_m:
-        if t_ex == "_".join(tail.split()):
-            retur
+        if t_ex == "_".join(tail.split()) or t_ex.find("_".join(tail.split())) != -1:
+            final_tail_p_e_m = t_ex
+            break
+            
+    for h_ex in head_p_e_m:
+        if h_ex == "_".join(head.split()) or t_ex.find("_".join(head.split())) != -1:
+            final_head_p_e_m = h_ex
+            break
+
     
 
     valid_relations = [ r for r in relations if r not in invalid_relations_set and r.isalpha() and len(r) > 1 ]
     if len(valid_relations) == 0:
         return {}
-    return { 'h': head_p_e_m[0], 't': tail_p_e_m[0], 'r': '_'.join(valid_relations)  }
+    return { 'h': final_head_p_e_m[0], 't': final_tail_p_e_m[0], 'r': '_'.join(valid_relations)  }
 
 def deduplication(triplets):
     unique_pairs = []
