@@ -71,7 +71,6 @@ sacremoses==0.0.43
 scipy==1.5.4
 seaborn==0.11.0
 Send2Trash==1.5.0
-sentencepiece==0.1.90
 six==1.15.0
 spacy==2.3.2
 srsly==1.0.4
@@ -79,7 +78,6 @@ terminado==0.9.1
 testpath==0.4.4
 thinc==7.4.1
 tokenizers==0.8.1rc2
-torch>=1.5
 tornado==6.1
 tqdm==4.51.0
 traitlets==4.3.3
