@@ -74,14 +74,9 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
         nlp: spacy model
         tokenizer: huggingface tokenizer
     '''
+   
     doc = Doc()
-
-    tokens = doc.word_tokenization(sentence)
-
-
-    chunk2id = {}
-
-    sentence_mapping,token2id,noun_chunks = doc.find_pos_tags(sentence)
+    sentence_mapping,token2id,ner_chunks = doc.find_ner_tags(sentence)
 
     token_ids = []
     tokenid2word_mapping = []
@@ -91,15 +86,8 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
         tokenid2word_mapping += [ token2id[token] ]*len(subtoken_ids)
         token_ids += subtoken_ids
 
-    tokenizer_name = str(tokenizer.__str__)
-    if 'GPT2' in tokenizer_name:
-        outputs = {
-            'input_ids': token_ids,
-            'attention_mask': [1]*(len(token_ids)),
-        }
 
-    else:
-        outputs = {
+    outputs = {
             'input_ids': [tokenizer.cls_token_id] + token_ids + [tokenizer.sep_token_id],
             'attention_mask': [1]*(len(token_ids)+2),
             'token_type_ids': [0]*(len(token_ids)+2)
@@ -109,7 +97,7 @@ def create_mapping(sentence, return_pt=False, nlp = None, tokenizer=None):
         for key, value in outputs.items():
             outputs[key] = torch.from_numpy(np.array(value)).long().unsqueeze(0)
     
-    return outputs, tokenid2word_mapping, token2id, noun_chunks
+    return outputs, tokenid2word_mapping, token2id, ner_chunks
 
 
 def compress_attention(attention, tokenid2word_mapping, operator=np.mean):
