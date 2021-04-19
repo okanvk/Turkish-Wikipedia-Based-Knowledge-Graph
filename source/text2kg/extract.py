@@ -97,6 +97,7 @@ if __name__ == '__main__':
                                 header_infobox = getInfoBox(header)
                                 header_triplets = getRelation(header_infobox,header)
                                 g.write(json.dumps( header_triplets )+'\n')
+                                print(header + " written on json")
                                 
                             if tail not in cached_entity_links:
                                 cached_entity_links.add(tail)    
