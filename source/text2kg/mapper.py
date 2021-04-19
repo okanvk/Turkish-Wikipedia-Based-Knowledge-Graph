@@ -15,8 +15,16 @@ def Map(head, relations, tail, top_first=True, best_scores = True):
     tail_p_e_m = emb.wiki(str(tail), 'wiki')
     if tail_p_e_m is None:
         return {}
+    
+    
     tail_p_e_m = tail_p_e_m[0]
     head_p_e_m = head_p_e_m[0]
+    
+    for t_ex in tail_p_e_m:
+        if t_ex == "_".join(tail.split()):
+            retur
+    
+
     valid_relations = [ r for r in relations if r not in invalid_relations_set and r.isalpha() and len(r) > 1 ]
     if len(valid_relations) == 0:
         return {}
