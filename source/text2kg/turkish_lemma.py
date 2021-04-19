@@ -6,6 +6,7 @@ class TurkishLemmatizer():
         self.analyzer = zeyrek.MorphAnalyzer()
 
     def bring_lemma(self,word):
+        return word
         result_index = 0
         lemma_index_in_tuple = 1
         word = word.lower()
