@@ -3,6 +3,7 @@ import unicodedata
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import unquote
+import re
 
 def check_blank(text):
     if text.startswith('\n'):
@@ -77,7 +78,7 @@ def getRelation(data,pageName):
                         t = value['name'].lower()
                     if len(t) > 0:
                         temp_r = key.lower().replace(' ','_')
-                        
+
                         if temp_r.isspace() or t.find("#") != -1 or t.isspace():
                           continue
 
