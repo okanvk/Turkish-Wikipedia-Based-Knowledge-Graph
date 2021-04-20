@@ -33,8 +33,6 @@ def getInfoBox(pageName):
 
     url = requests.get("https://tr.wikipedia.org/wiki/"+pageName).text
     soup = BeautifulSoup(url,'html.parser')
-    title_tag = "title="
-    action_http = "&action"
     result = {}
     exceptional_row_count = 0
     for infoBox in ["infobox vcard","infobox vcard plainlist",'infobox biography vcard','infobox geography vcard','infobox vevent']:
@@ -68,6 +66,8 @@ def getInfoBox(pageName):
 def getRelation(data,pageName):
     result = []
     unique = set()
+    title_tag = "title="
+    action_http = "&action"
     try:
         for key in data.keys():
             for value in data[key]:
@@ -81,11 +81,11 @@ def getRelation(data,pageName):
                     if len(t) > 0:
                         temp_r = key.lower().replace(' ','_')
 
-                        if temp_r.isspace() or t.find("#") != -1 or t.isspace() or t.find(""):
+                        if temp_r.isspace() or t.find("#") != -1 or t.isspace():
                           continue
                         
-                        if t.find("index.php") != -1 and t.find(title_tag) and t.find(action_http) != -1:
-                            t = t[t.find(title_tag) + len(title_tag) :t.find(action_http)]
+                        if t.find("index.php") != -1 and t.find(title_tag) != -1 and t.find(action_http) != -1:
+                          t = t[t.find(title_tag) + len(title_tag) :t.find(action_http)]
 
                         temp_r = temp_r.replace("("," ")
                         temp_r = temp_r.replace(")"," ")
