@@ -33,6 +33,8 @@ def getInfoBox(pageName):
 
     url = requests.get("https://tr.wikipedia.org/wiki/"+pageName).text
     soup = BeautifulSoup(url,'html.parser')
+    title_tag = "title="
+    action_http = "&action"
     result = {}
     exceptional_row_count = 0
     for infoBox in ["infobox vcard","infobox vcard plainlist",'infobox biography vcard','infobox geography vcard','infobox vevent']:
