@@ -79,8 +79,11 @@ def getRelation(data,pageName):
                     if len(t) > 0:
                         temp_r = key.lower().replace(' ','_')
 
-                        if temp_r.isspace() or t.find("#") != -1 or t.isspace():
+                        if temp_r.isspace() or t.find("#") != -1 or t.isspace() or t.find(""):
                           continue
+                        
+                        if t.find("index.php") != -1 and t.find(title_tag) and t.find(action_http) != -1:
+                            t = t[t.find(title_tag) + len(title_tag) :t.find(action_http)]
 
                         temp_r = temp_r.replace("("," ")
                         temp_r = temp_r.replace(")"," ")
