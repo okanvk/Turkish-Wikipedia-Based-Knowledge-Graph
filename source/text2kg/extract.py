@@ -25,7 +25,7 @@ parser = argparse.ArgumentParser(description='Process lines of text corpus into 
 parser.add_argument('input_filename', type=str, help='text file as input')
 parser.add_argument('output_filename', type=str, help='output text file')
 parser.add_argument('--language_model',default='dbmdz/bert-base-turkish-cased', 
-                    choices=[ 'dbmdz/bert-base-turkish-cased','dbmdz/electra-base-turkish-discriminator'],
+                    choices=[ 'dbmdz/bert-base-turkish-cased','dbmdz/electra-base-turkish-cased-discriminator'],
                     help='which language model to use')
 parser.add_argument('--use_cuda', default=True, 
                         type=str2bool, nargs='?',
