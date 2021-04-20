@@ -80,7 +80,42 @@
         nodes: nodes,
         edges: edges,
       };
-      var options = {};
+      var options = {
+          interaction:{
+              dragNodes:true,
+              dragView: true,
+              hover: true,
+              hoverConnectedEdges: true,
+              selectConnectedEdges: true,
+              zoomView: true                
+          },
+          layout:{
+              randomSeed : 2,
+              improvedLayout:true,
+              clusterThreshold: 150,
+          },  
+          physics: {
+              barnesHut: {
+              avoidOverlap: 0.5
+              }
+          },      
+          nodes: {
+              physics:false,
+              borderWidth:3,
+              size:14,
+              font:{color:'#000000'}                
+          },
+          edges:{
+              length: 200,
+              smooth: {
+                  roundness: 0.2,
+                  type: 'dynamic'
+              },                         
+              font:{
+                  size:9,
+              }    
+          }               
+      };
       var network = new vis.Network(container, data, options);
     </script>
   </body>
