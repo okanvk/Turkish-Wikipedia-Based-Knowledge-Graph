@@ -35,7 +35,7 @@ def getInfoBox(pageName):
     soup = BeautifulSoup(url,'html.parser')
     result = {}
     exceptional_row_count = 0
-    for infoBox in ["infobox vcard","infobox vcard plainlist",'infobox biography vcard','infobox geography vcard','infobox vevent']:
+    for infoBox in ["infobox vcard","infobox vcard plainlist",'infobox biography vcard','infobox geography vcard','infobox vevent','infobox']:
         table = soup.find('table', class_=infoBox)
         if table is None:
             continue
