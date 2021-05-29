@@ -136,4 +136,8 @@ We used Turkish WordNet and trnlp gihub repository to collect adjective, adverb 
 
 |  Adjective Count  |  Adverb Count  | Verb Count | 
 |:-----------------:|:--------------:|:----------:|
-|     18548         |      3741      |    23062   |   
+|     18548         |      3741      |    23062   |
+
+
+## Presentation
+https://www.youtube.com/watch?v=25fUKX36Nx4
